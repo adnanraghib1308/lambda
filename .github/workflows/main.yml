@@ -27,4 +27,4 @@ jobs:
       - name: deploy
         run: |
           zip -j deploy.zip ./*
-          aws lambda update-function-code --function-name=lambda-gh-action --zip-file=fileb://deploy.zip
+          aws lambda update-function-code --function-name=BillGeneration --zip-file=fileb://deploy.zip
