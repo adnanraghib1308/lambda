@@ -26,5 +26,5 @@ jobs:
           npm i
       - name: deploy
         run: |
-          zip -j deploy.zip ./*
+          zip deploy.zip ./*
           aws lambda update-function-code --function-name=BillGeneration --zip-file=fileb://deploy.zip
