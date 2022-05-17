@@ -1,7 +1,7 @@
 const fs = require("fs");
 const path = require("path");
-const puppeteer = require('puppeteer');
 const handlebars = require("handlebars");
+var pdff = require('html-pdf');
 
 exports.generatePdf = generatePdf = () => {
   try {
@@ -25,8 +25,8 @@ exports.generatePdf = generatePdf = () => {
         }
 
         var templateHtml = fs.readFileSync(path.join(process.cwd(), 'invoice.html'), 'utf8');
-        var template = handlebars.compile(templateHtml);
-        var finalHtml = encodeURIComponent(template(dataBinding));
+        var template = handlebars.compile(templateHtml)(dataBinding);
+
         var options = {
             format: 'Ledger',
             headerTemplate: "<p></p>",
@@ -40,18 +40,10 @@ exports.generatePdf = generatePdf = () => {
             path: 'invoice.pdf'
         }
 
-        const browser = await puppeteer.launch({
-            args: ['--no-sandbox'],
-            headless: true
+        pdff.create(template, options).toFile('./businesscard.pdf', function(err, res) {
+            if (err) return console.log(err);
+            console.log(res); // { filename: '/app/businesscard.pdf' }
         });
-        const page = await browser.newPage();
-        await page.goto(`data:text/html;charset=UTF-8,${finalHtml}`, {
-            waitUntil: 'networkidle0'
-        });
-        await page.pdf(options);
-        await browser.close();
-
-        console.log('Done: invoice.pdf is created!')
     })();
   } catch (err) {
       console.log('ERROR:', err);
