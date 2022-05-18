@@ -1,4 +1,4 @@
-name: Deploy lambda
+name: Deploy lambdaa
 
 on:
   push:
