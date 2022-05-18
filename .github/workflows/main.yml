@@ -22,8 +22,6 @@ jobs:
       - name: npm install
         env:
           CI: true
-        run: |
-          npm i
       - name: deploy
         run: |
           zip -r deploy.zip ./*
