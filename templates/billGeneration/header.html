@@ -1,0 +1,105 @@
+<body>
+  <div class="mx-3">
+    <div class=" d-flex border border-bottom-0 border-dark">
+      <div class="col border-end border-dark p-1">
+        <div class="fw-bold fs-5 text-uppercase">Biobazaar Healthtech Private Limited</div>
+        <p class="fs-6">56/08/01, LASUDIYA MORI,DHANIYAWALE KE PASS, INDORE(M.P.) 452010
+          <br>
+          Phone : 8839248265
+          <br>
+          D.L.No. : 20B-21B/3493-3494/12/2021
+          <br>
+          FSSAI NO:-21421850014874,
+          <br>
+          GSTIN : 23AAKCB2760P1ZD
+          <br>
+          POWERED BY:-LAXMI DRUG HOUSE
+        </p>
+      </div>
+      <div class="col-5 border-end border-dark text-center d-flex flex-column justify-content-between">
+        <div class="fw-bold fs-5 my-4">GST INVOICE</div>
+        <div>
+          {{#with invoice}}
+          <div class="d-flex">
+            <div class="col border-top border-end border-dark">
+              <div class="fs-5">
+                Invoice No.
+              </div>
+              <div class="fw-bold fs-5">
+                {{number}}
+              </div>
+            </div>
+            <div class="col border-top border-end border-dark">
+              <div class="fs-5">
+                Invoice Date
+              </div>
+              <div class="fs-5">
+                {{date}}
+              </div>
+            </div>
+            <div class="col border-top border-dark">
+              <div class="fs-5">
+                Order No.
+              </div>
+              <div class="fs-5">
+                {{orderNumber}}
+              </div>
+            </div>
+          </div>
+          <div class="d-flex">
+            <div class="col border-top border-end border-dark">
+              <div class="fs-5">
+                Order Date
+              </div>
+              <div class="fs-5">
+                {{orderDate}}
+              </div>
+            </div>
+            <div class="col border-top border-end border-dark">
+              <div class="fs-5">
+                PO Number
+              </div>
+              <div class="fs-5">
+                {{PONumber}}
+              </div>
+            </div>
+            <div class="col border-top border-dark">
+              <div class="fs-5">
+                Payment Due Date
+              </div>
+              <div class="fs-5">
+                {{payDueDate}}
+              </div>
+            </div>
+          </div>
+          {{/with}}
+        </div>
+      </div>
+      <div class="col d-flex flex-column justify-content-between p-1">
+        {{#with party}}
+        <div class="fs-6">
+          Party Name :
+          <br>
+          <div class="fs-5 fw-bold">
+            {{name}}
+          </div>
+          {{address}}
+          <br>
+          PHONE. :
+          {{#each phone}}
+          {{this}}
+          {{#unless @last}},{{/unless}}
+          {{/each}}
+          <br>
+          D.L.No. : {{DLNumber}}
+          <br>
+          FSSAI NO:- {{FSSAINumber}}
+        </div>
+        {{/with}}
+        <div class="fs-6 border-top border-dark my-2">
+          Delivery Agent: Mohmd babar
+        </div>
+      </div>
+    </div>
+  </div>
+</body>

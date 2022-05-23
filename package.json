@@ -1,0 +1,13 @@
+{
+  "dependencies": {
+    "aws-sdk": "^2.1140.0",
+    "chrome-aws-lambda": "^10.1.0",
+    "handlebars": "^4.7.7",
+    "handlebars-helper-range": "^1.1.1",
+    "moment": "^2.29.3",
+    "puppeteer-core": "^10.4.0"
+  },
+  "devDependencies": {
+    "puppeteer": "^14.1.1"
+  }
+}

@@ -1,0 +1,255 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css">
+
+<style>
+  #middle tr {
+    border: 0;
+  }
+
+  @media print {
+    #footer {
+      page-break-inside: avoid;
+      page-break-after: always;
+    }
+  }
+</style>
+
+<body>
+  <div class="mx-3">
+    <div class="d-flex">
+      <table id="middle" class="table table-sm table-bordered border-dark m-0">
+        <thead class="table-primary border-dark">
+          <tr>
+            <th scope="col">S.</th>
+            <th scope="col">Location</th>
+            <th scope="col">Product Name</th>
+            <th scope="col">Pack Size</th>
+            <th scope="col">Total Qty</th>
+            <th scope="col">Sale Qty</th>
+            <th scope="col">Free Qty</th>
+            <th scope="col">Batch Number</th>
+            <th scope="col">Exp</th>
+            <th scope="col">MRP</th>
+            <th scope="col">HSN</th>
+            <th scope="col">PTR</th>
+            <th scope="col">Dis(%)</th>
+            <th scope="col">SGST(%)</th>
+            <th scope="col">CGST(%)</th>
+            <th scope="col">GST Amount</th>
+            <th scope="col">Net Amount</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each items}}
+          <tr class="text-wrap">
+            <td>{{serialNo ../index}}</td>
+            <td>{{location}}</td>
+            <td>{{name}}</td>
+            <td>{{size}}</td>
+            <td>{{totalQty}}</td>
+            <td>{{saleQty}}</td>
+            <td>{{freeQty}}</td>
+            <td>{{batch}}</td>
+            <td>{{exp}}</td>
+            <td>{{mrp}}</td>
+            <td>{{hsn}}</td>
+            <td>{{ptr}}</td>
+            <td>{{dis}}</td>
+            <td>{{sgst}}</td>
+            <td>{{cgst}}</td>
+            <td>{{amt}}</td>
+            <td>{{netAmt}}</td>
+          </tr>
+          {{/each}}
+        </tbody>
+      </table>
+    </div>
+    <div class="d-flex" id="footer">
+      <table class="table table-sm table-bordered border-dark m-0">
+        <thead class="table-primary border-0 border-top">
+          <tr>
+            <th scope="col">CLASS</th>
+            <th scope="col">Amount</th>
+            <th scope="col">DISCOUNT</th>
+            <th scope="col">SGST</th>
+            <th scope="col">CGST</th>
+            <th scope="col">TOTAL GST</th>
+            <th scope="col">Total Qty:- 4</th>
+            <th scope="col">Total Items:- 2</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              GST 0.00%
+              <br>
+              GST 5.00%
+              <br>
+              GST 12.00%
+              <br>
+              GST 18.00%
+            </td>
+            <td>
+              0.00
+              <br>
+              0.00
+              <br>
+              153.30
+              <br>
+              0.00
+            </td>
+            <td>
+              0.00
+              <br>
+              0.00
+              <br>
+              0.00
+              <br>
+              0.00
+            </td>
+            <td>
+              0.00
+              <br>
+              0.00
+              <br>
+              9.21
+              <br>
+              0.00
+            </td>
+            <td>
+              0.00
+              <br>
+              0.00
+              <br>
+              9.21
+              <br>
+              0.00
+            </td>
+            <td>
+              0.00
+              <br>
+              0.00
+              <br>
+              18.42
+              <br>
+              0.00
+            </td>
+            <td colspan="2" rowspan="2" class="text-center">
+              <div class="fw-bold text-uppercase">bank details</div>
+              HDFC BANK -INDORE
+              <br>
+              A/C NO:- 50200061891531
+              <br>
+              IFSC CODE :-HDFC0000404
+            </td>
+            <td class="text-center" rowspan="4">
+              <div class="fw-bold text-uppercase">upi qr for payment</div>
+            </td>
+            <td rowspan="5">
+              <div class="d-flex justify-content-between">
+                <span>Total Amount</span>
+                <span>{{totalAmt}}</span>
+              </div>
+              <div class="d-flex justify-content-between">
+                <span>Item Discount:</span>
+                <span>12532</span>
+              </div>
+              <div class="d-flex justify-content-between">
+                <span>Bill Discount(“%”)</span>
+                <span>45210</span>
+              </div>
+              <div class="d-flex justify-content-between">
+                <span>CGST</span>
+                <span>12</span>
+              </div>
+              <div class="d-flex justify-content-between">
+                <span>SGST</span>
+                <span>12</span>
+              </div>
+              {{#if isLastPage}}
+              <div class="d-flex justify-content-between fw-bold">
+                <span>Grand Total</span>
+                <span>1223130</span>
+              </div>
+              <div class="d-flex justify-content-between fw-bold">
+                <span>Already paid</span>
+                <span></span>
+              </div>
+              <div class="d-flex justify-content-between fw-bold">
+                <span>CN (CN Number)</span>
+                <span></span>
+              </div>
+              <div class="d-flex justify-content-between fw-bold">
+                <span>To Be paid</span>
+                <span></span>
+              </div>
+              {{/if}}
+              {{#unless isLastPage}}
+              <div class="fw-bold text-center my-5">
+                <span>Page No.</span>
+                <span>{{pageNo}} / {{pageCount}}</span>
+              </div>
+              {{/unless}}
+            </td>
+          </tr>
+          <tr>
+            <td>TOTAL</td>
+            <td>153.30</td>
+            <td>0.00</td>
+            <td>9.21</td>
+            <td>9.21</td>
+            <td>18.42</td>
+          </tr>
+          <tr>
+            <td class="fw-bold text-capitalize" colspan="8">Rs. one hundered seventy only</td>
+          </tr>
+          <tr>
+            <td class="fw-bold" colspan="8">REMARK:-</td>
+          </tr>
+          <tr>
+            <td colspan="3">
+              <div class="fw-bold fst-italic">Terms & Conditions:-</div>
+              Goods once sold will not be taken back or exchanged.
+              <br>
+              All disputes subject to Jurisdication only.
+              <br>
+              Bills not paid post due date will attract 2% interest.
+              <br>
+              <div class="fw-bold">OUR NEW CONTACT NO. : 8839248265</div>
+            </td>
+            <td class="text-center fw-bold" colspan="3">
+              PREVIOUS BALANCE
+              <br>
+              157.00
+              <br>
+              WHATS APP:
+              <br>
+              8839248265
+            </td>
+            <td colspan="2">
+              <div class="fw-bold text-center d-flex flex-column justify-content-between">
+                <span class="text-uppercase">for biobazaar healthtech private limited</span>
+                <span>Authorised Signatory</span>
+              </div>
+            </td>
+            <td class="text-capitalize">
+              <div class="d-flex justify-content-between">
+                <span>sales agent name:</span>
+                <span class="text-decoration-underline">aniket solanki</span>
+              </div>
+              <div class="d-flex justify-content-between">
+                <span>billing agent:</span>
+                <span class="text-decoration-underline">rahul vishnoi</span>
+              </div>
+              <div class="d-flex justify-content-between">
+                <span>picker:</span>
+                <span class="text-decoration-underline">babu rao vapte</span>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</body>
