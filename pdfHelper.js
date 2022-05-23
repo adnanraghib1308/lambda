@@ -4,6 +4,7 @@ const getPDFBuffer = async (html, options) => {
   let browser = null;
   try {
     const executablePath = await chromium.executablePath;
+    console.log("html>>>>>>>>> ", html);
     browser = await chromium.puppeteer.launch({
       args: chromium.args,
       defaultViewport: chromium.defaultViewport,
