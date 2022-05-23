@@ -29,7 +29,7 @@ const handlerFunction = async (event) => {
 // handlerFunction({
 //   type: 'billGeneration',
 //   bucket: 'biobazaar',
-//   fileName: 'pdf2',
+//   fileName: 'pdf3',
 //   rootFolderName: 'bills',
 //   data: dummyData
 // })

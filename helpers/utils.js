@@ -1,10 +1,8 @@
 const moment = require('moment');
 const AWS = require('aws-sdk');
+const awsConfig = require('../config/aws.json');
 
-const s3 = new AWS.S3({
-  accessKeyId: "AKIA26PWDOGVYNIFAOOO",
-  secretAccessKey: "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"
-});
+const s3 = new AWS.S3(awsConfig);
 
 /**
  * returns s3 file path by adding year month day sub folders
@@ -16,7 +14,6 @@ const s3 = new AWS.S3({
   const year = momentObj.year();
   const month = momentObj.month();
   const day = momentObj.date();
-  const timeStamp = moment().unix();
 
   return `${rootFolderName}/${year}/${month}/${day}/${fileName}`;
 };
