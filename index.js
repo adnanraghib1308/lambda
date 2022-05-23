@@ -5,7 +5,7 @@ const dummyData = require('./db.json');
 const handlerFunction = async (event) => {
 
   let pdf = null;
-  const { type, data, bucket, fileName, rootFolderName} = event.body;
+  const { type, data, bucket, fileName, rootFolderName } = event.body;
 
   switch(type) {
     case "billGeneration": {
