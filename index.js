@@ -1,8 +1,5 @@
-const {generatePdf} = require('./pdf');
-
 exports.handler = async (event) => {
-  generatePdf();
-  console.log("hey hey hey inside lambda", event);
+  console.log("hey hey hey inside lambda updated", event);
   const response = {
     statusCode: 200,
     body: JSON.stringify("Hello from Lambda and Github!"),
