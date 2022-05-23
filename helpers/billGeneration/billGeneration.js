@@ -47,8 +47,8 @@ const getPDFBuffer = async (data) => {
 
     const page = await browser.newPage();
 
-    var headerHtml = fs.readFileSync(path.join(process.cwd(), './templates/billGeneration/header.html'), 'utf8');
-    var templateHtml = fs.readFileSync(path.join(process.cwd(), './templates/billGeneration/billGeneration.html'), 'utf8');
+    var headerHtml = fs.readFileSync(path.join(process.cwd(), './helpers/billGeneration/header.html'), 'utf8');
+    var templateHtml = fs.readFileSync(path.join(process.cwd(), './helpers/billGeneration/billGeneration.html'), 'utf8');
     var options = {
       format: 'a4',
       landscape: true,
