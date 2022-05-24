@@ -1,8 +1,11 @@
 const moment = require('moment');
 const AWS = require('aws-sdk');
-const awsConfig = require('../config/aws.json');
+require('dotenv').config();
 
-const s3 = new AWS.S3(awsConfig);
+const s3 = new AWS.S3({
+  accessKeyId: process.env.ACCESS_KEY_ID,
+  secretAccessKey: process.env.SECRET_ACCESS_KEY
+});
 
 /**
  * returns s3 file path by adding year month day sub folders
